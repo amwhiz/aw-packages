@@ -15,8 +15,7 @@
   "author": "Amwhiz",
   "license": "ISC",
   "dependencies": {
-    "@aw/axios": "^1.0.0",
     "@aw/env": "^1.0.0",
-    "@aw/retry-mechanism": "^1.0.0"
+    "messagebird": "^4.0.1"
   }
 }

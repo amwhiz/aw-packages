@@ -26,20 +26,13 @@ We have put some self-explanatory examples in the examples directory, but here i
 ```
 import messagebirdClient from '@aw/messagebird';
 
-const messagebird = new messagebirdClient({
-    numberOfApiCallRetries: 2,
-  });
+const messagebird = new messagebirdClient();
   const messageContent: ConversationParameter = {
     to: 'YOUR_RECIPIENT_NUMBER',
     from: 'YOUR_CHANNEL_ID',
     type: 'image',
-    content: {
-      image: {
-        url: 'https://media.istockphoto.com/id/529249803/photo/background.jpeg',
-      },
-    },
+    url: 'https://media.istockphoto.com/id/529249803/photo/background.jpeg',
   };
-  
   const response = await messagebird.sendMediaMessage(messageContent);
 ```
 
