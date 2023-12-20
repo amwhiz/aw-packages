@@ -1,10 +1,5 @@
 /* eslint-disable no-console */
-import {
-  SQSClient,
-  SQSClientConfig,
-  SendMessageCommand,
-  SendMessageCommandOutput,
-} from '@aws-sdk/client-sqs';
+import { SQSClient, SQSClientConfig, SendMessageCommand, SendMessageCommandOutput } from '@aws-sdk/client-sqs';
 import { env } from '@aw/env';
 import { QueueInputType } from './types/queueInput';
 import { QueueConfigType } from './types/queueConfig';

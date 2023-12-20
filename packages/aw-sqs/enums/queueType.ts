@@ -1,4 +1,4 @@
 export enum QueueType {
-    FIFO = 'FIFO',
-    STANDARD = 'STANDARD'
-} 
+  FIFO = 'FIFO',
+  STANDARD = 'STANDARD',
+}

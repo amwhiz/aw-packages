@@ -5,7 +5,7 @@ const Environments = Object.freeze({
   cdsEncryptionKey: process.env.SIM_ACTIVATION_ENCRYPTION_KEY,
   region: process.env.REGION,
   accessKey: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
 type KeyType = keyof typeof Environments;
