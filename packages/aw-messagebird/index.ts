@@ -26,8 +26,8 @@ export default class MessageBirdClient {
       type: MessageTypeEnum.HSM,
       content: {
         hsm: {
-          namespace: payload.templateId,
-          templateName: payload.templateName,
+          namespace: payload?.['templateId'],
+          templateName: payload?.['templateName'],
           params: payload?.['params'],
           language: {
             policy: 'deterministic',
