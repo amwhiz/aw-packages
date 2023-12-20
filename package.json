@@ -8,11 +8,26 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --cache src packages --ext .ts",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --config .prettierrc src/**/**.ts packages/**/**.ts --check",
+    "format:fix": "prettier --config .prettierrc src/**/**.ts packages/**/**.ts -write",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.21",
+    "prettier": "^3.1.1",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.0"
   }
 }
