@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { env } from '@aw/env';
-import { ConversationParameter, MessageBird, SendResponseMessage, initClient } from 'messagebird';
+import { ConversationParameter, MessageBird, SendResponse, SendResponseMessage, initClient } from 'messagebird';
 import { SendTemplateMessageRequest } from './types/sendTemplateMessageRequest';
 import { MessageTypeEnum } from './enums/messageType';
 import { GetMessageType } from './types/message';
@@ -14,7 +14,7 @@ export default class MessageBirdClient {
   }
 
   private async handleError(response: Error | null): Promise<void> {
-    if (response?.['error'] || !response?.message) {
+    if (response?.['errors'] || !response?.message) {
       throw new Error('Something went wrong!'); // Need to handle error
     }
   }
@@ -50,24 +50,30 @@ export default class MessageBirdClient {
     return conversationParams;
   }
 
+  private async makeRequest(sendMessageRequest: ConversationParameter): Promise<SendResponseMessage | undefined> {
+    const response = new Promise((resolve, reject) => {
+      this.messagebirdClient.conversations.send(sendMessageRequest, (e, data) => {
+        if (e) reject(e);
+        resolve(data);
+      });
+    });
+    try {
+      return (await response) as SendResponseMessage;
+    } catch (e) {
+      this.handleError(e);
+    }
+  }
+
   public async sendTemplateMessage(payload: SendTemplateMessageRequest): Promise<SendResponseMessage> {
     const sendMessageRequest: ConversationParameter = this.getMessageRequest(payload);
-    let messageResponse: SendResponseMessage = {} as SendResponseMessage;
-    this.messagebirdClient.conversations.send(sendMessageRequest, (e, data) => {
-      this.handleError(e);
-      messageResponse = data?.message as SendResponseMessage;
-    });
+    const messageResponse: SendResponse | SendResponseMessage = (await this.makeRequest(sendMessageRequest)) as SendResponseMessage;
     return messageResponse;
   }
 
   // Supported media file and size: image	image/jpeg, image/png and	5 MB
   public async sendMediaMessage(payload: SendMediaMessageRequest): Promise<SendResponseMessage> {
     const sendMessageRequest: ConversationParameter = this.getMessageRequest(payload);
-    let messageResponse: SendResponseMessage = {} as SendResponseMessage;
-    this.messagebirdClient.conversations.send(sendMessageRequest, (e, data) => {
-      this.handleError(e);
-      messageResponse = data?.message as SendResponseMessage;
-    });
+    const messageResponse: SendResponse | SendResponseMessage = (await this.makeRequest(sendMessageRequest)) as SendResponseMessage;
     return messageResponse;
   }
 }
