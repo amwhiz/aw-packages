@@ -1,0 +1,26 @@
+{
+  "name": "@aw/sqs",
+  "version": "1.0.0",
+  "description": "Aws sqs services",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "sqs",
+    "aws",
+    "sqs",
+    "sqs",
+    "services"
+  ],
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.477.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.7"
+  }
+}
