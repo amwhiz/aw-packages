@@ -1,8 +1,8 @@
 import { QueueType } from '../enums/queueType';
 
 export type QueueConfigType = {
-  url: string;
+  Url: string;
   MessageDeduplicationId: string;
   MessageGroupId: string;
-  type: QueueType;
+  Type: QueueType;
 };

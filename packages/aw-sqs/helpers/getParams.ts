@@ -6,11 +6,11 @@ import { v1 as uuidv1 } from 'uuid';
 
 export const getParams = (queueConfig: QueueConfigType, payload: QueueInputType): SendMessageCommandInput => {
   const params: SendMessageCommandInput = {
-    QueueUrl: queueConfig.url,
+    QueueUrl: queueConfig.Url,
     MessageBody: JSON.stringify(payload?.data || '{}'),
   };
 
-  if (queueConfig.type === QueueType.FIFO) {
+  if (queueConfig.Type === QueueType.FIFO) {
     // For fifo queue message duplication handle
     params['MessageGroupId'] = queueConfig.MessageGroupId;
     params['MessageDeduplicationId'] = `${queueConfig.MessageDeduplicationId}-${uuidv1()}`;
