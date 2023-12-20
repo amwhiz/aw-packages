@@ -6,6 +6,7 @@ const Environments = Object.freeze({
   region: process.env.REGION,
   accessKey: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  messageBirdAccessKey: process.env.MESSAGE_BIRD_ACCESS_KEY,
 });
 
 type KeyType = keyof typeof Environments;

@@ -60,9 +60,7 @@ export default class RetryMechanism {
 
   protected _waitAfterRequestFailure(statusCode: number, retryNumber: number, retryTimeout: number): any {
     // eslint-disable-next-line no-console
-    console.error(
-      `Request failed with status code [${statusCode}], will retry [${retryNumber}] time in [${retryTimeout}] ms`
-    );
+    console.error(`Request failed with status code [${statusCode}], will retry [${retryNumber}] time in [${retryTimeout}] ms`);
     return new Promise((resolve) => setTimeout(resolve, retryTimeout * retryNumber));
   }
 }
