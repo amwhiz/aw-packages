@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosHeaders, AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from 'axios';
 import { StatusCode } from './enums/status-code';
 import { ResponseType } from './types/response';
-
-const headers: Readonly<Record<string, string | boolean>> = {
-  'Content-Type': 'application/json; charset=utf-8',
-};
 
 // For More References Check https://axios-http.com/
 class Http {
   private instance: AxiosInstance | null = null;
+  private headers: Readonly<Record<string, string | boolean>> = {
+    'Content-Type': 'application/json; charset=utf-8',
+  };
 
   private get http(): AxiosInstance {
     return this.instance ?? this.initHttp();
@@ -18,7 +17,7 @@ class Http {
   initHttp(): AxiosInstance {
     const http = axios.create({
       baseURL: 'https://api.example.com',
-      headers,
+      headers: this.headers,
     });
 
     http.interceptors.response.use(
@@ -31,6 +30,11 @@ class Http {
 
     this.instance = http;
     return http;
+  }
+
+  setHeaders(newHeaders: RawAxiosRequestHeaders | AxiosHeaders): void {
+    this.headers = { ...this.headers, ...newHeaders } as any;
+    this.instance = null; // Reset instance to apply new headers
   }
 
   request<T = any, R = AxiosResponse<T>>(config: AxiosRequestConfig): Promise<R> {
@@ -56,8 +60,7 @@ class Http {
   // Handle global app errors
   // We can handle generic app errors depending on the status code
   private handleError(error: any): ResponseType {
-    if (!error?.status)
-      return { statusCode: StatusCode.InternalServerError, error: 'Something went wrong, Please try again later' };
+    if (!error?.status) return { statusCode: StatusCode.InternalServerError, error: 'Something went wrong, Please try again later' };
     const { status } = error;
     return {
       statusCode: status,

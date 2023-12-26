@@ -1,0 +1,21 @@
+{
+  "name": "@aw/messagebird",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "messagebird",
+    "sms",
+    "mms",
+    "sms package"
+  ],
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/env": "^1.0.0",
+    "messagebird": "^4.0.1"
+  }
+}
