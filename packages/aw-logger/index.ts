@@ -6,3 +6,5 @@ const loggerConfiguration = { serviceName: env('serviceName') as string };
 export const logger = new Logger(loggerConfiguration);
 
 export const injectLambda = injectLambdaContext;
+
+export const LoggerService = Logger;

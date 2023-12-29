@@ -1,0 +1,22 @@
+{
+  "name": "@aw/dynamodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dynamodb",
+    "aws"
+  ],
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/env": "^1.0.0",
+    "@aw/logger": "^1.0.0",
+    "@aws-sdk/client-dynamodb": "^3.478.0",
+    "@aws-sdk/lib-dynamodb": "^3.478.0",
+    "dynamodb-toolbox": "^0.9.2"
+  }
+}
