@@ -8,3 +8,5 @@ export const logger = new Logger(loggerConfiguration);
 export const injectLambda = injectLambdaContext;
 
 export const LoggerService = Logger;
+
+export { Logger as LoggerService } from '@aws-lambda-powertools/logger';
