@@ -1,0 +1,21 @@
+{
+  "name": "@aw/wati",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Whatsapp",
+    "wati",
+    "api"
+  ],
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/axios": "^1.0.0",
+    "@aw/env": "^1.0.0",
+    "@aw/logger": "^1.0.0"
+  }
+}
