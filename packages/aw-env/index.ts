@@ -10,6 +10,7 @@ const Environments = Object.freeze({
   messageBirdAccessKey: process.env.MESSAGE_BIRD_ACCESS_KEY,
   watiAccessToken: process.env.WATI_ACCESS_TOKEN,
   watiBaseUri: process.env.WATI_BASE_URI,
+  stripeApiKey: process.env.STRIPE_API_KEY,
 });
 
 type KeyType = keyof typeof Environments;
