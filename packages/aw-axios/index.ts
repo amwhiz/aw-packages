@@ -14,16 +14,35 @@ class Http {
     return this.instance ?? this.initHttp();
   }
 
+  private calculateTime(response: AxiosResponse<any, any>): void {
+    const currentTime = new Date().getTime();
+    response.headers['request-endTime'] = currentTime;
+    const startTime = response.config.headers['request-startTime'];
+    response.headers['request-duration'] = currentTime - startTime;
+    response.headers['request-startTime'] = response.config.headers['request-startTime'];
+  }
+
   initHttp(): AxiosInstance {
     const http = axios.create({
       baseURL: 'https://api.example.com',
       headers: this.headers,
     });
 
+    http.interceptors.request.use((request) => {
+      // to avoid overwriting if another interceptor
+      // already defined the same object (meta)
+      request.headers['request-startTime'] = new Date().getTime();
+      return request;
+    });
+
     http.interceptors.response.use(
-      (response) => response,
+      (response) => {
+        this.calculateTime(response);
+        return response;
+      },
       (error) => {
         const { response } = error;
+        this.calculateTime(response);
         return this.handleError(response);
       }
     );
@@ -60,11 +79,13 @@ class Http {
   // Handle global app errors
   // We can handle generic app errors depending on the status code
   private handleError(error: any): ResponseType {
-    if (!error?.status) return { statusCode: StatusCode.InternalServerError, error: 'Something went wrong, Please try again later' };
+    if (!error?.status)
+      return { status: StatusCode.InternalServerError, error: 'Something went wrong, Please try again later', headers: error.headers };
     const { status } = error;
     return {
-      statusCode: status,
+      status: status,
       error: error?.data,
+      headers: error.headers,
     };
   }
 }
