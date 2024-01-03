@@ -1,6 +1,6 @@
 {
   "name": "@aw/axios",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "amwhiz axios package",
   "main": "index.ts",
   "scripts": {

@@ -4,7 +4,7 @@ import { JsonSchema } from './interfaces/interface';
 export class ObjectMapper<I extends object, O extends object> {
   source: I;
   schema: JsonSchema;
-  target: O; //te
+  target: O;
 
   constructor(source: I, jsonSchema: JsonSchema) {
     this.source = source;
