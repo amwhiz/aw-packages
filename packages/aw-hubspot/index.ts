@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client } from '@hubspot/api-client';
 import { CRM } from './crm';
-import { logger } from 'packages/aw-logger';
+import { logger } from '@aw/logger';
 import { credentialType } from './types/credential';
 import axios, { AxiosResponse } from 'axios';
 
