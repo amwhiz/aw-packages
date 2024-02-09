@@ -1,0 +1,17 @@
+{
+  "name": "@aw/hubspot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/env": "^1.0.0",
+    "@aw/logger": "^1.0.0",
+    "aws-lambda": "^1.0.7",
+    "crypto": "^1.0.1"
+  }
+}

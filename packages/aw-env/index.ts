@@ -11,6 +11,7 @@ const Environments = Object.freeze({
   watiAccessToken: process.env.WATI_ACCESS_TOKEN,
   watiBaseUri: process.env.WATI_BASE_URI,
   stripeApiKey: process.env.STRIPE_API_KEY,
+  hubAccessToken: process.env.HUB_ACCESS_TOKEN,
 });
 
 type KeyType = keyof typeof Environments;
