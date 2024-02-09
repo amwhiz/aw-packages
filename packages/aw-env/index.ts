@@ -11,7 +11,7 @@ const Environments = Object.freeze({
   watiAccessToken: process.env.WATI_ACCESS_TOKEN,
   watiBaseUri: process.env.WATI_BASE_URI,
   stripeApiKey: process.env.STRIPE_API_KEY,
-  authUrl: process.env.AUTH,
+  hubspotAuthUrl: process.env.HUBSPOT_AUTH_URL,
 });
 
 type KeyType = keyof typeof Environments;

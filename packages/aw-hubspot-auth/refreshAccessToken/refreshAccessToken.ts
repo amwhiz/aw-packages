@@ -11,7 +11,7 @@ export class RefreshAccessToken {
   }
 
   public async refreshAccessToken(): Promise<any> {
-    const url = env('authUrl') as string;
+    const url = env('hubspotAuthUrl') as string;
     const data = this.payload;
     logger.info('RefreshAccessToken: Credential Data', { data });
 

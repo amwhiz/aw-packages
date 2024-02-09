@@ -10,7 +10,7 @@ export class GetAccessToken {
     this.payload = client;
   }
   public async getAccessToken(): Promise<any> {
-    const url = env('authUrl') as string;
+    const url = env('hubspotAuthUrl') as string;
     const data = this.payload;
     logger.info('GetAccessToken: Credential Data', { data });
 
