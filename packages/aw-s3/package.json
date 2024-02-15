@@ -1,0 +1,21 @@
+{
+  "name": "@aw/s3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "s3",
+    "aws",
+    "bucket"
+  ],
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/env": "^1.0.0",
+    "@types/minio": "^7.1.1",
+    "minio": "^7.1.3"
+  }
+}

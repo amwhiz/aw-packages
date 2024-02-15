@@ -14,6 +14,7 @@ const Environments = Object.freeze({
   razorPayKeyId: process.env.RAZORPAY_KEY_ID,
   razorPaySecretKey: process.env.RAZORPAY_SECRET_KEY,
   razorPayWebhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET,
+  bucketEndpoint: process.env.BUCKET_ENDPOINT,
 });
 
 type KeyType = keyof typeof Environments;
