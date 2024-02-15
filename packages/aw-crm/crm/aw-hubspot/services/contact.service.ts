@@ -1,8 +1,8 @@
 import { Client } from '@hubspot/api-client';
 import { ContactService } from '../../../interfaces/crmServices';
-import { PagingType } from '../types/responseType';
 import { PublicAssociationsForObject, SimplePublicObjectInput, SimplePublicObjectInputForCreate } from '@hubspot/api-client/lib/codegen/crm/contacts';
 import { defaultPagingResults } from '../constants/paging';
+import { PagingType } from '../types/responseType';
 
 export class Contact implements ContactService {
   private client: Client;

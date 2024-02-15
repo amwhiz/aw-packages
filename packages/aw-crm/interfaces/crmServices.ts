@@ -1,7 +1,9 @@
 import { PublicAssociationsForObject } from '@hubspot/api-client/lib/codegen/crm/contacts';
-import { RefreshTokenRequest, TokenResponse } from '../aw-hubspot/services/interfaces/auth';
 import { ISignatureOptions } from '../interfaces/signature';
-import { PagingType } from '../aw-hubspot/services/types/responseType';
+import { RefreshTokenRequest, TokenResponse } from '../crm/aw-hubspot/interfaces/auth';
+import { PagingType } from '../crm/aw-hubspot/types/responseType';
+import { ArchivedType, OwnerIdProperty } from '../crm/aw-hubspot/types/commonType';
+import { FormTypes } from '../crm/aw-hubspot/types/formType';
 
 export interface AuthService {
   token(tokenRequest: RefreshTokenRequest): Promise<TokenResponse | undefined>;
@@ -18,4 +20,19 @@ export interface ContactService {
 
 export interface SignatureService {
   isValid(ISignatureOptions: ISignatureOptions): boolean;
+}
+
+export interface FormService {
+  getAll<O>(limit?: number, after?: string, archived?: ArchivedType, formTypes?: FormTypes): Promise<PagingType<O>>;
+  get<O>(id: string, properties: string[], associations: string[], idProperty?: string | undefined): Promise<O | undefined>;
+}
+
+export interface MeetingService {
+  getAll<O>(limit?: number, after?: string, properties?: string[], associations?: string[]): Promise<PagingType<O>>;
+  get<O>(id: string, properties: string[], associations: string[], idProperty?: string | undefined): Promise<O | undefined>;
+}
+
+export interface OwnerService {
+  getAll<O>(limit?: number, after?: string, email?: string, archived?: ArchivedType): Promise<PagingType<O>>;
+  get<O>(id: number, archived?: ArchivedType, idProperty?: OwnerIdProperty): Promise<O | undefined>;
 }
