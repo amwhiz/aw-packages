@@ -1,4 +1,4 @@
-import { AuthService, ContactService, FormService, MeetingService, OwnerService, SignatureService } from './crmServices';
+import { AuthService, ContactService, DealService, FormService, MeetingService, OwnerService, SignatureService } from './crmServices';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface CRMProvider {
@@ -8,4 +8,5 @@ export interface CRMProvider {
   form(): FormService;
   meeting(): MeetingService;
   owner(): OwnerService;
+  deal(): DealService;
 }

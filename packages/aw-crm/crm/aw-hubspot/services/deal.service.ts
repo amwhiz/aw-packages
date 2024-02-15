@@ -1,11 +1,11 @@
 import { Client } from '@hubspot/api-client';
-import { ContactService } from '../../../interfaces/crmServices';
+import { DealService } from '../../../interfaces/crmServices';
 import { PublicAssociationsForObject, SimplePublicObjectInput, SimplePublicObjectInputForCreate } from '@hubspot/api-client/lib/codegen/crm/contacts';
 import { defaultPagingResults } from '../constants/paging';
 import { PagingType } from '../types/responseType';
 
-/** For More Info Contacts: https://developers.hubspot.com/docs/api/crm/contacts */
-export class Contact implements ContactService {
+/** For More info Deal: https://developers.hubspot.com/docs/api/crm/deals */
+export class Deal implements DealService {
   private client: Client;
 
   constructor(client: Client) {
@@ -14,7 +14,7 @@ export class Contact implements ContactService {
 
   async get<O>(id: string, properties: string[], associations: string[] = [], idProperty?: string | undefined): Promise<O | undefined> {
     try {
-      const response = await this.client.crm.contacts.basicApi.getById(id, properties, [], associations, false, idProperty);
+      const response = await this.client.crm.deals.basicApi.getById(id, properties, [], associations, false, idProperty);
       return { ...response?.properties, id: response.id } as O;
     } catch (e) {
       return;
@@ -23,7 +23,7 @@ export class Contact implements ContactService {
 
   async getAll<O>(limit: number = 100, after?: string, properties: string[] = [], associations: string[] = []): Promise<PagingType<O>> {
     try {
-      return (await this.client.crm.contacts.basicApi.getPage(limit, after, properties, [], associations)) as PagingType<O>;
+      return (await this.client.crm.deals.basicApi.getPage(limit, after, properties, [], associations)) as PagingType<O>;
     } catch (e) {
       return defaultPagingResults;
     }
@@ -35,7 +35,7 @@ export class Contact implements ContactService {
       properties: properties,
     };
     try {
-      const response = await this.client.crm.contacts.basicApi.create(createRequest);
+      const response = await this.client.crm.deals.basicApi.create(createRequest);
       return { ...response?.properties, id: response.id } as O;
     } catch (e) {
       return;
@@ -47,7 +47,7 @@ export class Contact implements ContactService {
       properties: properties,
     };
     try {
-      const response = await this.client.crm.contacts.basicApi.update(id, updateRequest, idProperty);
+      const response = await this.client.crm.deals.basicApi.update(id, updateRequest, idProperty);
       return { ...response?.properties, id: response.id } as O;
     } catch (e) {
       return;
@@ -56,7 +56,7 @@ export class Contact implements ContactService {
 
   async delete(id: string): Promise<void> {
     try {
-      await this.client.crm.contacts.basicApi.archive(id);
+      await this.client.crm.deals.basicApi.archive(id);
     } catch (e) {
       return;
     }

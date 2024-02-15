@@ -1,6 +1,6 @@
 import { BaseCRMProvider } from './base';
 import { CRMProvider } from './interfaces/crmProvider';
-import { AuthService, ContactService, FormService, MeetingService, OwnerService, SignatureService } from './interfaces/crmServices';
+import { AuthService, ContactService, DealService, FormService, MeetingService, OwnerService, SignatureService } from './interfaces/crmServices';
 
 export class CRMProcessor implements BaseCRMProvider {
   private provider: CRMProvider;
@@ -15,6 +15,10 @@ export class CRMProcessor implements BaseCRMProvider {
 
   contact(): ContactService {
     return this.provider.contact();
+  }
+
+  deal(): DealService {
+    return this.provider.deal();
   }
 
   signature(): SignatureService {

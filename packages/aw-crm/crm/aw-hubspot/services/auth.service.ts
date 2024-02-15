@@ -2,6 +2,7 @@ import { Client } from '@hubspot/api-client';
 import { AuthService } from '../../../interfaces/crmServices';
 import { RefreshTokenRequest, TokenResponse } from '../interfaces/auth';
 
+/** For More info Tokens: https://developers.hubspot.com/docs/api/oauth/tokens */
 export class Auth implements AuthService {
   private client: Client;
 

@@ -4,6 +4,7 @@ import { defaultPagingResults } from '../constants/paging';
 import { MeetingService } from '../../../interfaces/crmServices';
 import { PagingType } from '../types/responseType';
 
+/** For More info Meetings: https://developers.hubspot.com/docs/api/crm/meetings */
 export class Meeting implements MeetingService {
   private client: Client;
 

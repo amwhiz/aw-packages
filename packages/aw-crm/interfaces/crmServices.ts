@@ -18,6 +18,14 @@ export interface ContactService {
   delete(id: string): Promise<void>;
 }
 
+export interface DealService {
+  get<O>(id: string, properties: string[], associations: string[], idProperty?: string | undefined): Promise<O | undefined>;
+  getAll<O>(limit: number, after: string, properties: string[], associations: string[]): Promise<PagingType<O> | undefined>;
+  create<O>(properties: { [key: string]: string }, associations: PublicAssociationsForObject[]): Promise<O | undefined>;
+  update<O>(id: string, properties: { [key: string]: string }, idProperty?: string | undefined): Promise<O | undefined>;
+  delete(id: string): Promise<void>;
+}
+
 export interface SignatureService {
   isValid(ISignatureOptions: ISignatureOptions): boolean;
 }

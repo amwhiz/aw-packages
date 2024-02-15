@@ -7,6 +7,7 @@ import { FormTypes } from '../types/formType';
 import { ArchivedType } from '../types/commonType';
 import { PagingType } from '../types/responseType';
 
+/** For More info Forms: https://developers.hubspot.com/docs/api/marketing/forms */
 export class Form implements FormService {
   private client: Client;
 

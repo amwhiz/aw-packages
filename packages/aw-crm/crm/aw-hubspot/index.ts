@@ -7,6 +7,9 @@ import { Contact } from './services/contact.service';
 import { Signature } from './services/signature.service';
 import { Form } from './services/forms.service';
 import { Meeting } from './services/meeting.service';
+import { OwnerService, DealService } from '../../interfaces/crmServices';
+import { Owner } from './services/owner.service';
+import { Deal } from './services/deal.service';
 
 export class HubspotCRM extends BaseCRMProvider {
   private client: Client;
@@ -15,6 +18,8 @@ export class HubspotCRM extends BaseCRMProvider {
   private _signatureService: Signature;
   private _formService: Form;
   private _meetingService: Meeting;
+  private _ownerService: Owner;
+  private _dealService: Deal;
   private hubspotProviderIsTurnedOff: number = +(process.env.TURN_OFF_HUBSPOT_SERVICE || '0');
 
   constructor(config?: IConfiguration) {
@@ -38,6 +43,11 @@ export class HubspotCRM extends BaseCRMProvider {
     return this._contactService;
   }
 
+  deal(): DealService {
+    this._dealService = new Deal(this.client);
+    return this._dealService;
+  }
+
   signature(): Signature {
     this._signatureService = new Signature();
     return this._signatureService;
@@ -51,5 +61,10 @@ export class HubspotCRM extends BaseCRMProvider {
   meeting(): Meeting {
     this._meetingService = new Meeting(this.client);
     return this._meetingService;
+  }
+
+  owner(): OwnerService {
+    this._ownerService = new Owner(this.client);
+    return this._ownerService;
   }
 }

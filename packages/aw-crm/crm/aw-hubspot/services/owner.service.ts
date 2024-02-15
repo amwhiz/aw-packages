@@ -4,6 +4,7 @@ import { defaultPagingResults } from '../constants/paging';
 import { PagingType } from '../types/responseType';
 import { ArchivedType, OwnerIdProperty, StrOrUndefinedType } from '../types/commonType';
 
+/** For More info Owners: https://developers.hubspot.com/docs/api/crm/owners */
 export class Owner implements OwnerService {
   private client: Client;
 
