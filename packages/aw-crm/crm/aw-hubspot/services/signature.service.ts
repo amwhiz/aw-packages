@@ -2,6 +2,7 @@ import * as crypto from 'crypto';
 import { ISignatureOptions } from '../../../interfaces/signature';
 import { SignatureService } from '../../../interfaces/crmServices';
 
+/** For More info validating-requests: https://developers.hubspot.com/docs/api/webhooks/validating-requests */
 export class Signature implements SignatureService {
   public static readonly MAX_ALLOWED_TIMESTAMP = 300000;
 
