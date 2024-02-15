@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { BasePaymentProvider } from '../base';
 import Stripe from 'stripe';
 import { env } from '@aw/env';
@@ -42,5 +43,9 @@ export class StripePayment extends BasePaymentProvider {
 
     const checkoutSessionUrl = await this.client.checkout.sessions.create(checkoutRequest).catch((e) => this.handlerError(e));
     return checkoutSessionUrl?.url as string;
+  }
+
+  verifyWebhook(_webhookBody: object, _webhookSignature: string): Promise<boolean> {
+    throw new Error('Method not implemented.');
   }
 }
