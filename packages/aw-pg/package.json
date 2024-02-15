@@ -10,12 +10,14 @@
     "stripe",
     "ccavenue",
     "paymentGateway",
-    "paymentProviders"
+    "paymentProviders",
+    "razorpay"
   ],
   "author": "Amwhiz",
   "license": "ISC",
   "dependencies": {
     "@aw/env": "^1.0.0",
+    "razorpay": "^2.9.2",
     "stripe": "^14.10.0"
   }
 }

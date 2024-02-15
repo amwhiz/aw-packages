@@ -8,7 +8,7 @@ export class PaymentProcessor {
     this.provider = provider;
   }
 
-  async createCheckout(checkout: CheckoutPayload, notes: object): Promise<string> {
+  async createCheckout(checkout: CheckoutPayload, notes: object): Promise<string | void> {
     return await this.provider.createCheckoutLink(checkout, notes);
   }
 }
