@@ -1,5 +1,5 @@
 {
-  "name": "@aw/pg",
+  "name": "@aw/s3",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -7,17 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "stripe",
-    "ccavenue",
-    "paymentGateway",
-    "paymentProviders",
-    "razorpay"
+    "s3",
+    "aws",
+    "bucket"
   ],
   "author": "Amwhiz",
   "license": "ISC",
   "dependencies": {
     "@aw/env": "^1.0.0",
-    "razorpay": "^2.9.2",
-    "stripe": "^14.10.0"
+    "@types/minio": "^7.1.1",
+    "minio": "^7.1.3"
   }
 }
