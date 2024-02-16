@@ -5,8 +5,6 @@ const Environments = Object.freeze({
   region: process.env.REGION,
   serviceName: process.env.SERVICE_NAME,
   enableLogger: process.env.ENABLE_LOGGER,
-  accessKey: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   messageBirdAccessKey: process.env.MESSAGE_BIRD_ACCESS_KEY,
   watiAccessToken: process.env.WATI_ACCESS_TOKEN,
   watiBaseUri: process.env.WATI_BASE_URI,
@@ -15,6 +13,12 @@ const Environments = Object.freeze({
   razorPaySecretKey: process.env.RAZORPAY_SECRET_KEY,
   razorPayWebhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET,
   bucketEndpoint: process.env.BUCKET_ENDPOINT,
+  peachBaseUri: process.env.PEACH_BASE_URI,
+  peachEntityId: process.env.PEACH_ENTITY_ID,
+  peachClientId: process.env.PEACH_CLIENT_ID,
+  peachClientSecretId: process.env.PEACH_CLIENT_SECRET_ID,
+  peachMerchantId: process.env.PEACH_MERCHANT_ID,
+  peachAuthUri: process.env.PEACH_AUTH_URI,
 });
 
 type KeyType = keyof typeof Environments;

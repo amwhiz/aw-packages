@@ -6,4 +6,5 @@ export type CheckoutPayload = {
   description: string;
   whatsapp?: string;
   invoiceId: string;
+  currency?: string;
 };
