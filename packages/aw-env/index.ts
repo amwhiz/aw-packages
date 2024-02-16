@@ -5,8 +5,6 @@ const Environments = Object.freeze({
   region: process.env.REGION,
   serviceName: process.env.SERVICE_NAME,
   enableLogger: process.env.ENABLE_LOGGER,
-  accessKey: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   messageBirdAccessKey: process.env.MESSAGE_BIRD_ACCESS_KEY,
   watiAccessToken: process.env.WATI_ACCESS_TOKEN,
   watiBaseUri: process.env.WATI_BASE_URI,
@@ -15,6 +13,8 @@ const Environments = Object.freeze({
   razorPaySecretKey: process.env.RAZORPAY_SECRET_KEY,
   razorPayWebhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET,
   bucketEndpoint: process.env.BUCKET_ENDPOINT,
+  stage: process.env.STAGE,
+  parcelNinjaToken: process.env.PARCEL_NINJA_TOKEN,
 });
 
 type KeyType = keyof typeof Environments;
