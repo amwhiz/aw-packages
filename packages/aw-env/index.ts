@@ -19,6 +19,8 @@ const Environments = Object.freeze({
   peachClientSecretId: process.env.PEACH_CLIENT_SECRET_ID,
   peachMerchantId: process.env.PEACH_MERCHANT_ID,
   peachAuthUri: process.env.PEACH_AUTH_URI,
+  stage: process.env.STAGE,
+  parcelNinjaToken: process.env.PARCEL_NINJA_TOKEN,
 });
 
 type KeyType = keyof typeof Environments;

@@ -1,0 +1,15 @@
+{
+  "name": "@aw/shipment",
+  "version": "1.0.0",
+  "description": "shipment providers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shipRocket",
+    "parcelninja"
+  ],
+  "author": "Amwhiz",
+  "license": "ISC"
+}
