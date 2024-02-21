@@ -13,6 +13,12 @@ const Environments = Object.freeze({
   razorPaySecretKey: process.env.RAZORPAY_SECRET_KEY,
   razorPayWebhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET,
   bucketEndpoint: process.env.BUCKET_ENDPOINT,
+  peachBaseUri: process.env.PEACH_BASE_URI,
+  peachEntityId: process.env.PEACH_ENTITY_ID,
+  peachClientId: process.env.PEACH_CLIENT_ID,
+  peachClientSecretId: process.env.PEACH_CLIENT_SECRET_ID,
+  peachMerchantId: process.env.PEACH_MERCHANT_ID,
+  peachAuthUri: process.env.PEACH_AUTH_URI,
   stage: process.env.STAGE,
   parcelNinjaToken: process.env.PARCEL_NINJA_TOKEN,
 });
