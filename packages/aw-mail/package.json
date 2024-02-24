@@ -1,0 +1,16 @@
+{
+  "name": "@aw/mail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/env": "^1.0.0",
+    "nodemailer": "^6.9.10",
+    "zeptomail": "^6.0.0"
+  }
+}
