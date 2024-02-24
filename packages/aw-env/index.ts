@@ -21,6 +21,12 @@ const Environments = Object.freeze({
   peachAuthUri: process.env.PEACH_AUTH_URI,
   stage: process.env.STAGE,
   parcelNinjaToken: process.env.PARCEL_NINJA_TOKEN,
+  zeptoMailBaseUri: process.env.ZEPTO_MAIL_BASE_URI,
+  mailProvider: process.env.MAIL_PROVIDER,
+  zeptoMainAgentToken: process.env.ZEPTO_MAIL_AGENT_2_TOKEN,
+  zeptoToken: process.env.ZEPTO_TOKEN,
+  mailHost: process.env.MAIL_HOST,
+  mailUserName: process.env.MAIL_SMTP_USER_NAME,
 });
 
 type KeyType = keyof typeof Environments;
