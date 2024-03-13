@@ -27,6 +27,8 @@ const Environments = Object.freeze({
   zeptoToken: process.env.ZEPTO_TOKEN,
   mailHost: process.env.MAIL_HOST,
   mailUserName: process.env.MAIL_SMTP_USER_NAME,
+  schedulerRoleArn: process.env.SCHEDULER_ROLE_ARN,
+  schedulerTargetArn: process.env.SCHEDULER_TARGET_ARN,
 });
 
 type KeyType = keyof typeof Environments;

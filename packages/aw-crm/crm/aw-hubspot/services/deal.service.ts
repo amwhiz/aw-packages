@@ -29,10 +29,10 @@ export class Deal implements DealService {
     }
   }
 
-  async create<O>(properties: { [key: string]: string }, associations: PublicAssociationsForObject[]): Promise<O | undefined> {
+  async create<O>(properties: O, associations: PublicAssociationsForObject[]): Promise<O | undefined> {
     const createRequest: SimplePublicObjectInputForCreate = {
       associations,
-      properties: properties,
+      properties: properties as { [key: string]: string },
     };
     try {
       const response = await this.client.crm.deals.basicApi.create(createRequest);
@@ -42,9 +42,9 @@ export class Deal implements DealService {
     }
   }
 
-  async update<O>(id: string, properties: { [key: string]: string }, idProperty?: string | undefined): Promise<O | undefined> {
+  async update<O>(id: string, properties: O, idProperty?: string | undefined): Promise<O | undefined> {
     const updateRequest: SimplePublicObjectInput = {
-      properties: properties,
+      properties: properties as { [key: string]: string },
     };
     try {
       const response = await this.client.crm.deals.basicApi.update(id, updateRequest, idProperty);

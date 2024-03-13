@@ -1,6 +1,17 @@
 import { BaseCRMProvider } from './base';
 import { CRMProvider } from './interfaces/crmProvider';
-import { AuthService, ContactService, DealService, FormService, MeetingService, OwnerService, SignatureService } from './interfaces/crmServices';
+import {
+  AssociationService,
+  AuthService,
+  ContactService,
+  CustomObjectService,
+  DealService,
+  FormService,
+  LineItemService,
+  MeetingService,
+  OwnerService,
+  SignatureService,
+} from './interfaces/crmServices';
 
 export class CRMProcessor implements BaseCRMProvider {
   private provider: CRMProvider;
@@ -21,6 +32,10 @@ export class CRMProcessor implements BaseCRMProvider {
     return this.provider.deal();
   }
 
+  lineItem(): LineItemService {
+    return this.provider.lineItem();
+  }
+
   signature(): SignatureService {
     return this.provider.signature();
   }
@@ -35,5 +50,13 @@ export class CRMProcessor implements BaseCRMProvider {
 
   owner(): OwnerService {
     return this.provider.owner();
+  }
+
+  customObject(): CustomObjectService {
+    return this.provider.customObject();
+  }
+
+  association(): AssociationService {
+    return this.provider.association();
   }
 }

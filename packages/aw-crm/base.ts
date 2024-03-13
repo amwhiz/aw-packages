@@ -1,5 +1,16 @@
 import { CRMProvider } from './interfaces/crmProvider';
-import { AuthService, ContactService, DealService, FormService, MeetingService, OwnerService, SignatureService } from './interfaces/crmServices';
+import {
+  AssociationService,
+  AuthService,
+  ContactService,
+  CustomObjectService,
+  DealService,
+  FormService,
+  LineItemService,
+  MeetingService,
+  OwnerService,
+  SignatureService,
+} from './interfaces/crmServices';
 
 // Abstract class providing a base implementation for PaymentProvider
 export abstract class BaseCRMProvider implements CRMProvider {
@@ -8,6 +19,9 @@ export abstract class BaseCRMProvider implements CRMProvider {
   abstract owner(): OwnerService;
   abstract contact(): ContactService;
   abstract deal(): DealService;
+  abstract lineItem(): LineItemService;
   abstract form(): FormService;
   abstract meeting(): MeetingService;
+  abstract customObject(): CustomObjectService;
+  abstract association(): AssociationService;
 }
