@@ -1,0 +1,22 @@
+{
+  "name": "@aw/scheduler",
+  "version": "1.0.0",
+  "description": "Aws Event bridge scheduler services",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eventBridge",
+    "scheduler",
+    "aws"
+  ],
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/dynamodb": "^1.0.0",
+    "@aw/env": "^1.0.0",
+    "@aw/libs": "^1.0.0",
+    "@aws-sdk/client-scheduler": "^3.478.0"
+  }
+}
