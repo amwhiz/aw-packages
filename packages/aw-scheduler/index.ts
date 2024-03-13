@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SchedulerClient, CreateScheduleCommand, CreateScheduleCommandInput, CreateScheduleCommandOutput } from '@aws-sdk/client-scheduler';
+import { SchedulerClient, CreateScheduleCommand, CreateScheduleCommandInput, CreateScheduleCommandOutput, Target } from '@aws-sdk/client-scheduler';
 import { env } from '@aw/env';
 import { ScheduleType } from './types/schedule';
 import { ScheduleTargetEnum } from './enums/scheduleTarget';
@@ -16,10 +16,10 @@ export default class EventBridgeSchedulerClient {
   constructor() {
     this.scheduler = new SchedulerClient({
       credentials: {
-        accessKeyId: env('accessKey'),
-        secretAccessKey: env('secretAccessKey'),
+        accessKeyId: <string>env('accessKey'),
+        secretAccessKey: <string>env('secretAccessKey'),
       },
-      region: env('region'),
+      region: <string>env('region'),
     });
     this.dynamoDBClient = new DynamoDBClient();
   }
@@ -35,20 +35,20 @@ export default class EventBridgeSchedulerClient {
         Mode: 'OFF',
       },
       Target: {
-        RoleArn: env('schedulerRoleArn'), // Policy Arn
+        RoleArn: <string>env('schedulerRoleArn'), // Policy Arn
         RetryPolicy: {
           MaximumEventAgeInSeconds: 86400,
           MaximumRetryAttempts: 185,
         },
-        Arn: env('schedulerTargetArn'),
+        Arn: <string>env('schedulerTargetArn'),
         Input: JSON.stringify(Object.assign(payload?.data ?? {}, { schedule: true })),
       },
       ActionAfterCompletion: payload.ActionAfterCompletion,
     };
 
     if (payload.scheduleTargetType === ScheduleTargetEnum.SQS) {
-      command.Target['SqsParameters'] = {
-        MessageGroupId: payload?.messageGroupId,
+      (command.Target as Target)['SqsParameters'] = {
+        MessageGroupId: <string>payload?.messageGroupId,
       };
     }
 
@@ -98,7 +98,7 @@ export default class EventBridgeSchedulerClient {
       responseTime,
       requestDuration,
     };
-    await this.handlerError(event, command, null, null, payload.data?.['email'] || 'scheduler', time);
+    await this.handlerError(event, command, '', Method.get, payload.data?.['email'] || 'scheduler', time);
     return event;
   }
 }
