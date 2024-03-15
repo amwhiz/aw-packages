@@ -75,7 +75,9 @@ class Http {
   delete<T = any, R = AxiosResponse<T>>(url: string, config?: AxiosRequestConfig): Promise<R> {
     return this.http.delete<T, R>(url, config);
   }
-
+  patch<T = any, R = AxiosResponse<T>>(url: string, data?: T, config?: AxiosRequestConfig): Promise<R> {
+    return this.http.patch<T, R>(url, data, config);
+  }
   // Handle global app errors
   // We can handle generic app errors depending on the status code
   private handleError(error: any): ResponseType {
