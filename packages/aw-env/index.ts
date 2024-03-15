@@ -17,6 +17,22 @@ const Environments = Object.freeze({
   airTableBaseId: process.env.AIRTABLE_BASE_ID,
   airTableId: process.env.AIRTABLE_ID,
   webhookId: process.env.WEBHOOK_ID,
+  peachBaseUri: process.env.PEACH_BASE_URI,
+  peachEntityId: process.env.PEACH_ENTITY_ID,
+  peachClientId: process.env.PEACH_CLIENT_ID,
+  peachClientSecretId: process.env.PEACH_CLIENT_SECRET_ID,
+  peachMerchantId: process.env.PEACH_MERCHANT_ID,
+  peachAuthUri: process.env.PEACH_AUTH_URI,
+  stage: process.env.STAGE,
+  parcelNinjaToken: process.env.PARCEL_NINJA_TOKEN,
+  zeptoMailBaseUri: process.env.ZEPTO_MAIL_BASE_URI,
+  mailProvider: process.env.MAIL_PROVIDER,
+  zeptoMainAgentToken: process.env.ZEPTO_MAIL_AGENT_2_TOKEN,
+  zeptoToken: process.env.ZEPTO_TOKEN,
+  mailHost: process.env.MAIL_HOST,
+  mailUserName: process.env.MAIL_SMTP_USER_NAME,
+  schedulerRoleArn: process.env.SCHEDULER_ROLE_ARN,
+  schedulerTargetArn: process.env.SCHEDULER_TARGET_ARN,
 });
 
 type KeyType = keyof typeof Environments;

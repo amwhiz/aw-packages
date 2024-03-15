@@ -1,4 +1,15 @@
-import { AuthService, ContactService, DealService, FormService, MeetingService, OwnerService, SignatureService } from './crmServices';
+import {
+  AssociationService,
+  AuthService,
+  ContactService,
+  CustomObjectService,
+  DealService,
+  FormService,
+  LineItemService,
+  MeetingService,
+  OwnerService,
+  SignatureService,
+} from './crmServices';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface CRMProvider {
@@ -9,4 +20,7 @@ export interface CRMProvider {
   meeting(): MeetingService;
   owner(): OwnerService;
   deal(): DealService;
+  lineItem(): LineItemService;
+  customObject(): CustomObjectService;
+  association(): AssociationService;
 }

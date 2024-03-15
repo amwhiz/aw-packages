@@ -1,24 +1,22 @@
 {
-  "name": "@aw/pg",
+  "name": "@aw/scheduler",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aws Event bridge scheduler services",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "stripe",
-    "ccavenue",
-    "paymentGateway",
-    "paymentProviders",
-    "razorpay"
+    "eventBridge",
+    "scheduler",
+    "aws"
   ],
   "author": "Amwhiz",
   "license": "ISC",
   "dependencies": {
-    "@aw/axios": "^1.0.1",
+    "@aw/dynamodb": "^1.0.0",
     "@aw/env": "^1.0.0",
-    "razorpay": "^2.9.2",
-    "stripe": "^14.10.0"
+    "@aw/libs": "^1.0.0",
+    "@aws-sdk/client-scheduler": "^3.478.0"
   }
 }

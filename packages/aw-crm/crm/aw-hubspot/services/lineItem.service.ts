@@ -1,12 +1,13 @@
 import { Client } from '@hubspot/api-client';
-import { ContactService } from '../../../interfaces/crmServices';
+import { LineItemService } from '../../../interfaces/crmServices';
 import { defaultPagingResults } from '../constants/paging';
 import { PagingType } from '../types/responseType';
-import { PublicAssociationsForObject } from '@hubspot/api-client/lib/codegen/crm/companies';
-import { SimplePublicObjectInputForCreate, SimplePublicObjectInput } from '@hubspot/api-client/lib/codegen/crm/objects';
+import { BatchResponseSimplePublicObject, PublicAssociationsForObject } from '@hubspot/api-client/lib/codegen/crm/line_items';
+import { SimplePublicObjectInputForCreate, SimplePublicObjectInput } from '@hubspot/api-client/lib/codegen/crm/line_items';
+import { BatchInputSimplePublicObjectInputForCreate } from '@hubspot/api-client/lib/codegen/crm/line_items';
 
 /** For More Info Contacts: https://developers.hubspot.com/docs/api/crm/contacts */
-export class Contact implements ContactService {
+export class LineItem implements LineItemService {
   private client: Client;
 
   constructor(client: Client) {
@@ -43,9 +44,9 @@ export class Contact implements ContactService {
     }
   }
 
-  async update<O>(id: string, properties: { [key: string]: string }, idProperty: string | undefined = undefined): Promise<O | undefined> {
+  async update<O>(id: string, properties: O, idProperty: string | undefined = undefined): Promise<O | undefined> {
     const updateRequest: SimplePublicObjectInput = {
-      properties: properties,
+      properties: properties as { [key: string]: string },
     };
     try {
       const response = await this.client.crm.contacts.basicApi.update(id, updateRequest, idProperty);
@@ -58,6 +59,15 @@ export class Contact implements ContactService {
   async delete(id: string): Promise<void> {
     try {
       await this.client.crm.contacts.basicApi.archive(id);
+    } catch (e) {
+      return;
+    }
+  }
+
+  async batchCreate(BatchLineItems: BatchInputSimplePublicObjectInputForCreate): Promise<BatchResponseSimplePublicObject> {
+    try {
+      const response = await this.client.crm.lineItems.batchApi.create(BatchLineItems);
+      return response as BatchResponseSimplePublicObject;
     } catch (e) {
       return;
     }

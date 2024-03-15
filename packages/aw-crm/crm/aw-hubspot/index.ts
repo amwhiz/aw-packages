@@ -7,9 +7,12 @@ import { Contact } from './services/contact.service';
 import { Signature } from './services/signature.service';
 import { Form } from './services/forms.service';
 import { Meeting } from './services/meeting.service';
-import { OwnerService, DealService } from '../../interfaces/crmServices';
+import { OwnerService, DealService, CustomObjectService, LineItemService, AssociationService } from '../../interfaces/crmServices';
 import { Owner } from './services/owner.service';
 import { Deal } from './services/deal.service';
+import { CustomObject } from './services/customObject.service';
+import { LineItem } from './services/lineItem.service';
+import { Association } from './services/association.service';
 
 export class HubspotCRM extends BaseCRMProvider {
   private client: Client;
@@ -20,6 +23,9 @@ export class HubspotCRM extends BaseCRMProvider {
   private _meetingService: Meeting;
   private _ownerService: Owner;
   private _dealService: Deal;
+  private _customObject: CustomObject;
+  private _association: Association;
+  private _lineItem: LineItem;
   private hubspotProviderIsTurnedOff: number = +(process.env.TURN_OFF_HUBSPOT_SERVICE || '0');
 
   constructor(config?: IConfiguration) {
@@ -48,6 +54,11 @@ export class HubspotCRM extends BaseCRMProvider {
     return this._dealService;
   }
 
+  lineItem(): LineItemService {
+    this._lineItem = new LineItem(this.client);
+    return this._lineItem;
+  }
+
   signature(): Signature {
     this._signatureService = new Signature();
     return this._signatureService;
@@ -66,5 +77,15 @@ export class HubspotCRM extends BaseCRMProvider {
   owner(): OwnerService {
     this._ownerService = new Owner(this.client);
     return this._ownerService;
+  }
+
+  customObject(): CustomObjectService {
+    this._customObject = new CustomObject(this.client);
+    return this._customObject;
+  }
+
+  association(): AssociationService {
+    this._association = new Association(this.client);
+    return this._association;
   }
 }

@@ -1,0 +1,14 @@
+{
+  "name": "@aw/libs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amwhiz",
+  "license": "ISC",
+  "dependencies": {
+    "@aw/logger": "^1.0.0"
+  }
+}
