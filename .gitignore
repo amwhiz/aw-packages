@@ -1,6 +1,27 @@
-#node_modules
+# package directories
 node_modules
-package-lock.json
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# esbuild directories
+.esbuild
 
 # eslint cache
 .eslintcache
+
+#hint
+.hintrc
+
+# vscode
+.vscode
+
+# script
+script
+
+# event
+event.json
+
+#env
+.env

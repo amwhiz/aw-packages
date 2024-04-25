@@ -33,6 +33,8 @@ const Environments = Object.freeze({
   mailUserName: process.env.MAIL_SMTP_USER_NAME,
   schedulerRoleArn: process.env.SCHEDULER_ROLE_ARN,
   schedulerTargetArn: process.env.SCHEDULER_TARGET_ARN,
+  queueUrl: process.env.QUEUE_URL,
+  syncLogTable: process.env.SYNC_TABLE_NAME,
 });
 
 type KeyType = keyof typeof Environments;
