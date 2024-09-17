@@ -9,6 +9,7 @@ const Environments = Object.freeze({
   watiAccessToken: process.env.WATI_ACCESS_TOKEN,
   watiBaseUri: process.env.WATI_BASE_URI,
   stripeApiKey: process.env.STRIPE_API_KEY,
+  googleCalenderAuthUrl: process.env.GOOGLE_CALENDER_AUTH_URL,
   razorPayKeyId: process.env.RAZORPAY_KEY_ID,
   razorPaySecretKey: process.env.RAZORPAY_SECRET_KEY,
   razorPayWebhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET,
